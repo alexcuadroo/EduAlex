@@ -27,7 +27,22 @@ const experiencia = [
 ---
 
 <section class="experiencia">
-  <h2 id="experiencia">Experiencia</h2>
+  <h2 id="experiencia">
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 20"
+      stroke-width="2"
+      stroke="currentColor"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+        d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"
+      ></path><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path><path
+        d="M12 12l0 .01"></path><path d="M3 13a20 20 0 0 0 18 0"></path></svg
+    >Experiencia
+  </h2>
   {
     experiencia.map((item, index) => (
       <div id={`experiencia-${index}`} class="experiencia-item">
@@ -46,14 +61,14 @@ const experiencia = [
   h2 {
     scroll-margin-top: 80px;
     font-size: 2em;
-    text-align: center;
     margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
   }
   .experiencia {
-    max-width: 500px;
     margin: 0 auto;
     margin-top: 10vh;
-    padding: 20px;
   }
 
   .experiencia-item {
@@ -80,4 +95,8 @@ const experiencia = [
     font-size: 0.9em;
     color: #145192;
   }
+  @media screen and (max-width: 600px) {
+    .experiencia {
+      margin: 4vw;
+    }
 </style>
