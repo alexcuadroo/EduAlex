@@ -1,0 +1,83 @@
+---
+// Experiencia.astro
+
+const experiencia = [
+  {
+    periodo: "2024 - Actualmente",
+    institucion: [
+      "- Escuela Técnica Toledo - Mtro. Julio Maria Castro",
+      "- Escuela Técnica Vista Linda",
+    ],
+    descripcion: "Docencia Directa",
+  },
+  {
+    periodo: "2023 - 2024",
+    institucion: [
+      "- Escuela Técnica Alfredo Zitarrosa",
+      "- Escuela Técnica Progreso",
+    ],
+    descripcion: "Docencia Directa",
+  },
+  {
+    periodo: "2022 - 2023",
+    institucion: ["- Práctica - Liceo N°6 Rivera"],
+    descripcion: "Docencia Directa",
+  },
+];
+---
+
+<section class="experiencia">
+  <h2 id="experiencia">Experiencia</h2>
+  {
+    experiencia.map((item, index) => (
+      <div id={`experiencia-${index}`} class="experiencia-item">
+        <h3>{item.periodo}</h3>
+        <h4>
+          {Array.isArray(item.institucion)
+            ? item.institucion.map((p, index) => <div>{p}</div>)
+            : item.institucion}
+        </h4>
+        <p>{item.descripcion}</p>
+      </div>
+    ))
+  }
+</section>
+<style>
+  h2 {
+    scroll-margin-top: 80px;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .experiencia {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 10vh;
+    padding: 20px;
+  }
+
+  .experiencia-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 4px solid #007bff;
+    background-color: #f9f9f9;
+  }
+
+  .experiencia-item h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+  }
+
+  .experiencia-item h4 {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #007bff;
+  }
+
+  .experiencia-item p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #666;
+  }
+</style>

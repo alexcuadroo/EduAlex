@@ -1,0 +1,155 @@
+---
+// Proyectos.astro
+
+const proyectos = [
+  {
+    nombre: "Generador de QR",
+    url: "https://qr.edualex.uy",
+    codigo: "https://github.com/alexcuadroo/qr-code-generator",
+    descripcion:
+      "Este es un generador de qr mediante url o texto, usando la libreria qrcode.js",
+    imagen: "/qrgen.png",
+  },
+  {
+    nombre: "Acortador de URL",
+    url: "https://short.uy",
+    codigo: "https://github.com/alexcuadroo/nano-url",
+    descripcion: "Un proyecto innovador que resuelve problemas complejos.",
+    imagen: "/shortuy.png",
+  },
+  {
+    nombre: "Repositorio EBI/EMS",
+    url: "https://app.edualex.uy/sources",
+    codigo: "https://github.com/alexcuadroo/appsPHP",
+    descripcion: "Un repositorio de recursos para docentes de EBI y EMS",
+    imagen: "/repoebiems.png",
+  },
+  {
+    nombre: "Proyecto 4",
+    url: "",
+    codigo: "",
+    descripcion: "",
+    imagen: "/",
+  },
+];
+---
+
+<h2 id="proyectos">Proyectos</h2>
+<section class="proyectos">
+  {
+    proyectos.map((proyecto, index) => (
+      <div class="card" data-key={index}>
+        <img src={proyecto.imagen} alt={proyecto.nombre} class="card-image" />
+        <div class="card-content">
+          <h3 class="card-title">{proyecto.nombre}</h3>
+          <p class="card-description">{proyecto.descripcion}</p>
+          <a
+            href={proyecto.url}
+            class="card-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver Proyecto
+          </a>
+          <a
+            href={proyecto.codigo}
+            class="codigo-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Código
+          </a>
+        </div>
+      </div>
+    ))
+  }
+</section>
+
+<style>
+  h2 {
+    scroll-margin-top: 80px;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .proyectos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+  }
+
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 15px;
+  }
+
+  .card-title {
+    margin: 0 0 10px;
+    font-size: 1.7em;
+    color: #333;
+  }
+
+  .card-description {
+    margin: 0 0 15px;
+    font-size: 0.1em;
+    color: #666;
+  }
+
+  .card-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .card-button:hover {
+    background-color: #0056b3;
+  }
+  .codigo-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #ff4800;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .codigo-button:hover {
+    background-color: #200049;
+  }
+  @media screen and (max-width: 600px) {
+    h2 {
+      margin-top: 15vh;
+    }
+    .card {
+      width: 100%;
+    }
+  }
+</style>
