@@ -1,0 +1,101 @@
+---
+// Componente Contacto.astro
+---
+
+<h2 id="contacto">Contacto</h2>
+<form class="contact-form" action="/submit-form" method="POST">
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input
+      type="text"
+      id="nombre"
+      name="nombre"
+      placeholder="José Pérez"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="correo">Correo electrónico:</label>
+    <input
+      type="email"
+      id="correo"
+      name="correo"
+      placeholder="hola@tucorreo.com"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="mensaje">Mensaje:</label>
+    <textarea
+      id="mensaje"
+      name="mensaje"
+      placeholder="Escribe tu mensaje aquí"
+      required></textarea>
+  </div>
+
+  <button type="submit" class="submit-button">Enviar</button>
+</form>
+
+<style>
+  h2 {
+    scroll-margin-top: 80px;
+    font-size: 2em;
+    margin-bottom: 20px;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+  .contact-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #e2f3ff;
+    background-color: #e2f3ff;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    height: 100px;
+  }
+
+  .submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .submit-button:hover {
+    cursor: not-allowed;
+  }
+  @media screen and (max-width: 600px) {
+    .contact-form {
+      margin: 4vw;
+    }
+  }
+</style>
