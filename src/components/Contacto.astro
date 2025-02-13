@@ -78,7 +78,6 @@
           }
         );
 
-        // Verifica si la solicitud fue exitosa
         if (response.ok) {
           const result = await response.json();
           alert("Mensaje enviado con éxito");
@@ -148,6 +147,10 @@
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
+  }
+  .submit-button:hover {
+    background-color: #032e5b;
+    transition: background-color 0.3s ease;
   }
 
   @media screen and (max-width: 600px) {
