@@ -62,7 +62,12 @@ const proyectos = [
   {
     proyectos.map((proyecto, index) => (
       <div class="card" data-key={index}>
-        <img src={proyecto.imagen} alt={proyecto.nombre} class="card-image" />
+        <img
+          src={proyecto.imagen}
+          alt={proyecto.nombre}
+          loading="lazy"
+          class="card-image"
+        />
         <div class="card-content">
           <h3 class="card-title">{proyecto.nombre}</h3>
           <p class="card-description">{proyecto.descripcion}</p>
@@ -159,6 +164,7 @@ const proyectos = [
   }
 
   .card-image {
+    aspect-ratio: 3 / 2;
     width: 100%;
     height: 200px;
     object-fit: cover;
