@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 // Nav.astro
 ---
@@ -84,3 +85,90 @@
     }
   }
 </style>
+=======
+---
+
+---
+<nav class="navbar">
+  <ul class="nav-list">
+    <li><a href="">Sobre mí</a></li>
+    <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#experiencia">Experiencia</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+<script is:inline>
+  window.addEventListener("scroll", () => {
+    const navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  });
+</script>
+<style>
+  .navbar {
+    position: fixed;
+    top: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+    padding: 6px 8px;
+    z-index: 1000;
+    filter: drop-shadow(0 8px 12px rgba(52, 73, 231, 0.641));
+    backdrop-filter: blur(5px);
+    transition: background 0.3s ease-in-out;
+    border-radius: 50px;
+  }
+  .scrolled {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .nav-list li {
+    margin: 0 10px;
+  }
+
+  .nav-list a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+    box-sizing: border-box;
+  }
+
+  .nav-list a:hover {
+    background-color: white;
+    color: #032e5b;
+  }
+  @media screen and (max-width: 600px) {
+    .navbar {
+      margin-top: 1vh;
+      padding: 0 5px;
+      font-size: small;
+      top: 0;
+      border-radius: 50px;
+      width: 90vw;
+    }
+    .nav-list {
+      flex-direction: row;
+      text-align: center;
+    }
+    .nav-list li {
+      margin: 0;
+    }
+  }
+</style>
+>>>>>>> babc594110ccb8c33e46842e358328d3023dbf29

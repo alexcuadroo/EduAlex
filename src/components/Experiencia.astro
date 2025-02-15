@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 // Experiencia.astro
 
@@ -105,3 +106,110 @@ const experiencia = [
       margin: 4vw;
     }
 </style>
+=======
+---
+const experiencia = [
+  {
+    periodo: "Actualmente",
+    descripcion: "Desempleado 🤔",
+  },
+  {
+    periodo: "2024 - 2025",
+    institucion: [
+      "- Escuela Técnica Toledo - Mtro. Julio Maria Castro",
+      "- Escuela Técnica Vista Linda",
+    ],
+    descripcion: "Docencia Directa",
+  },
+  {
+    periodo: "2023 - 2024",
+    institucion: [
+      "- Escuela Técnica Alfredo Zitarrosa",
+      "- Escuela Técnica Progreso",
+    ],
+    descripcion: "Docencia Directa",
+  },
+  {
+    periodo: "2022 - 2023",
+    institucion: ["- Práctica - Liceo N°6 Rivera"],
+    descripcion: "Docencia Directa",
+  },
+];
+---
+
+<section class="experiencia">
+  <h2 id="experiencia">
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 20"
+      stroke-width="2"
+      stroke="currentColor"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+        d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"
+      ></path><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path><path
+        d="M12 12l0 .01"></path><path d="M3 13a20 20 0 0 0 18 0"></path></svg
+    >Experiencia
+  </h2>
+  {
+    experiencia.map((item, index) => (
+      <div id={`experiencia-${index}`} class="experiencia-item">
+        <h3>{item.periodo}</h3>
+        <h4>
+          {Array.isArray(item.institucion)
+            ? item.institucion.map((p, index) => <div>{p}</div>)
+            : item.institucion}
+        </h4>
+        <p>{item.descripcion}</p>
+      </div>
+    ))
+  }
+</section>
+<style>
+  h2 {
+    scroll-margin-top: 80px;
+    font-size: 2em;
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #032e5b;
+  }
+  .experiencia {
+    margin: 0 auto;
+    margin-top: 10vh;
+  }
+
+  .experiencia-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 4px solid #007bff;
+    background-color: #d9eaff;
+  }
+
+  .experiencia-item h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #007bff;
+  }
+
+  .experiencia-item h4 {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #3876b8;
+  }
+
+  .experiencia-item p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #004289;
+  }
+  @media screen and (max-width: 600px) {
+    .experiencia {
+      margin: 4vw;
+    }
+</style>
+>>>>>>> babc594110ccb8c33e46842e358328d3023dbf29

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 // Proyectos.astro
 
@@ -232,3 +233,243 @@ const proyectos = [
     }
   }
 </style>
+=======
+---
+const proyectos = [
+  {
+    nombre: "Generador de QR",
+    url: "https://qr.edualex.uy",
+    codigo: "https://github.com/alexcuadroo/qr-code-generator",
+    descripcion:
+      "Un generador de qr mediante url o texto, usando la libreria qrcode.js.",
+    imagen: "/qrgen.webp",
+  },
+  {
+    nombre: "Acortador de URL",
+    url: "https://short.uy",
+    codigo: "https://github.com/alexcuadroo/nano-url",
+    descripcion: "Un acortador de URL desplegado con functions en Netlify.",
+    imagen: "/shortuy.png",
+  },
+  {
+    nombre: "Repositorio EBI/EMS",
+    url: "https://app.edualex.uy/sources",
+    codigo: "https://github.com/alexcuadroo/appsPHP",
+    descripcion: "Un repositorio de recursos para docentes de EBI y EMS.",
+    imagen: "/repoebiems.png",
+  },
+  {
+    nombre: "LinkHub Educativo",
+    url: "https://app.edualex.uy/linkhub",
+    codigo: "https://github.com/alexcuadroo/appsPHP/tree/main/00-linkhub",
+    descripcion:
+      "Un directorio con herramientas educativas que incluye buscador, autenticación y sección favoritos.",
+    imagen: "/linkedu.png",
+  },
+  {
+    nombre: "ToDo App",
+    url: "https://todo.edualex.uy/",
+    codigo:
+      "https://github.com/alexcuadroo/AprendiendoVite/tree/main/vite-project",
+    descripcion:
+      "Un aplicación de notas / tareas con Vite y React utilizando local storage con el fin de empezar en el framework.",
+    imagen: "/todoapp.png",
+  },
+];
+---
+
+<h2 id="proyectos">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 24 20"
+    stroke-width="2"
+    stroke="currentColor"
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+      d="M7 8l-4 4l4 4"></path><path d="M17 8l4 4l-4 4"></path><path
+      d="M14 4l-4 16"></path></svg
+  >Proyectos
+</h2>
+<section class="proyectos">
+  {
+    proyectos.map((proyecto, index) => (
+      <div class="card" data-key={index}>
+        <img
+          src={proyecto.imagen}
+          alt={proyecto.nombre}
+          loading="lazy"
+          class="card-image"
+        />
+        <div class="card-content">
+          <h3 class="card-title">{proyecto.nombre}</h3>
+          <p class="card-description">{proyecto.descripcion}</p>
+          {proyecto.url && (
+            <a
+              href={proyecto.url}
+              class="card-button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                class="size-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 30 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <>
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                </>
+              </svg>
+              Proyecto
+            </a>
+          )}
+          {proyecto.codigo && (
+            <a
+              href={proyecto.codigo}
+              class="codigo-button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 30 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <>
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+                </>
+              </svg>
+              Código
+            </a>
+          )}
+        </div>
+      </div>
+    ))
+  }
+</section>
+
+<style>
+  h2 {
+    scroll-margin-top: 80px;
+    font-size: 2em;
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #032e5b;
+  }
+  .proyectos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+  }
+
+  .card {
+    border-radius: 8px;
+    background-color: #d9eaff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: scale3d(1.05, 1.05, 1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-image {
+    aspect-ratio: 3 / 2;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 15px;
+  }
+
+  .card-title {
+    margin: 0 0 10px;
+    font-size: 1.7em;
+    color: #145192;
+  }
+
+  .card-description {
+    margin: 0 0 15px;
+    font-size: 0.95em;
+    color: #002d5c;
+  }
+
+  .card-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: black;
+    padding: 3px 12px;
+    border: 1px solid black;
+    border-radius: 20px;
+    font-size: small;
+    text-decoration: none;
+    &:hover {
+      transition: background-color 0.3s ease;
+      background-color: #f7fcfe;
+      color: red;
+      border: 1px solid red;
+    }
+  }
+  .codigo-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #006ee3;
+    padding: 3px 12px;
+    border: 1px solid #007bff;
+    border-radius: 20px;
+    margin-left: 5px;
+    font-size: small;
+    text-decoration: none;
+    &:hover {
+      transition: background-color 0.3s ease;
+      background-color: #f7fcfe;
+      color: black;
+      border: 1px solid black;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    h2 {
+      margin: 4vw;
+    }
+    .proyectos {
+      margin: 4vw;
+    }
+    .card {
+      width: 100%;
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+</style>
+>>>>>>> babc594110ccb8c33e46842e358328d3023dbf29
