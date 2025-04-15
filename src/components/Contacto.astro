@@ -1,6 +1,8 @@
 ---
-
+let feedback = "";
+let enviando = false;
 ---
+
 <h2 id="contacto">
   <svg
     width="20"
@@ -49,45 +51,59 @@
       required></textarea>
   </div>
 
-  <button type="submit" class="submit-button">Enviar</button>
+  <button type="submit" class="submit-button" disabled={enviando}
+    >{enviando ? "Enviando..." : "Enviar"}</button
+  >
+  <div class="feedback-message" id="feedback-message" style="display:none">
+  </div>
 </form>
 <script is:inline>
-  document
-    .querySelector(".contact-form")
-    .addEventListener("submit", async (e) => {
-      e.preventDefault();
-      // Obtén los datos del formulario
-      const formData = {
-        nombre: e.target.nombre.value,
-        correo: e.target.correo.value,
-        mensaje: e.target.mensaje.value,
-      };
-
-      try {
-        const response = await fetch(
-          "https://resen-api.vercel.app/api/send-email",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData), // Convierte los datos a JSON
-          }
-        );
-
-        if (response.ok) {
-          const result = await response.json();
-          alert("Mensaje enviado con éxito");
-          e.target.reset();
-        } else {
-          throw new Error("Error al enviar el mensaje");
+  const form = document.querySelector(".contact-form");
+  const button = form.querySelector(".submit-button");
+  const feedbackDiv = form.querySelector("#feedback-message");
+  function showFeedback(msg, type) {
+    feedbackDiv.textContent = msg;
+    feedbackDiv.style.display = "block";
+    feedbackDiv.className =
+      "feedback-message " + (type === "success" ? "success" : "error");
+  }
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    button.disabled = true;
+    button.textContent = "Enviando...";
+    feedbackDiv.style.display = "none";
+    const formData = {
+      nombre: e.target.nombre.value,
+      correo: e.target.correo.value,
+      mensaje: e.target.mensaje.value,
+    };
+    try {
+      const response = await fetch(
+        "https://resen-api.vercel.app/api/send-email",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
         }
-      } catch (error) {
-        alert(
-          "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo."
-        );
+      );
+      if (response.ok) {
+        e.target.reset();
+        showFeedback("Mensaje enviado con éxito", "success");
+      } else {
+        showFeedback("Error al enviar el mensaje", "error");
       }
-    });
+    } catch (error) {
+      showFeedback(
+        "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+        "error"
+      );
+    } finally {
+      button.disabled = false;
+      button.textContent = "Enviar";
+    }
+  });
 </script>
 <style>
   h2 {
@@ -148,6 +164,27 @@
   .submit-button:hover {
     background-color: #032e5b;
     transition: background-color 0.3s ease;
+  }
+
+  .feedback-message {
+    margin-top: 12px;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 12px 0;
+    font-size: 1.1em;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+  }
+  .feedback-message.success {
+    color: #155724;
+    background: #d4edda;
+    border-color: #28a745;
+  }
+  .feedback-message.error {
+    color: #721c24;
+    background: #f8d7da;
+    border-color: #dc3545;
   }
 
   @media screen and (max-width: 600px) {
