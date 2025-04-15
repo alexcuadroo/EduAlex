@@ -1,0 +1,122 @@
+---
+// Educacion.astro
+const educacion = [
+  {
+    anio: "2023",
+    institucion: "Instituto Normal de Enseñanza Técnica",
+    descripcion: "Profesorado de Informática.",
+  },
+  {
+    anio: "2023",
+    institucion: "Educantel",
+    descripcion: "Curso de Programación en Python, HTML",
+  },
+  {
+    anio: "2019 - 2022",
+    institucion: "Centro Regional de Profesores del Norte",
+    descripcion: "Profesorado de Historia.",
+  },
+];
+---
+
+<h2 id="educacion">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    ><path d="M22 12H2"></path><path d="M12 2v20"></path></svg
+  >
+  Educación
+</h2>
+<section class="timeline">
+  {
+    educacion.map((item, idx) => (
+      <div class="timeline-item" data-key={idx}>
+        <div class="timeline-dot" />
+        <div class="timeline-content">
+          <span class="timeline-year">{item.anio}</span>
+          <span class="timeline-inst">{item.institucion}</span>
+          <p class="timeline-desc">{item.descripcion}</p>
+        </div>
+      </div>
+    ))
+  }
+</section>
+
+<style>
+  h2 {
+    scroll-margin-top: 80px;
+    font-size: 2em;
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #032e5b;
+  }
+  .timeline {
+    position: relative;
+    margin: 30px 0 30px 20px;
+    padding-left: 20px;
+    border-left: 3px solid #145192;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .timeline-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .timeline-dot {
+    width: 16px;
+    height: 16px;
+    background: #145192;
+    border-radius: 50%;
+    position: absolute;
+    left: -32px;
+    top: 12px;
+    border: 3px solid #d9eaff;
+  }
+  .timeline-content {
+    background: #d9eaff;
+    border-radius: 8px;
+    padding: 10px 18px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+    min-width: 220px;
+  }
+  .timeline-year {
+    font-weight: bold;
+    color: #145192;
+    font-size: 1.1em;
+    margin-right: 10px;
+  }
+  .timeline-inst {
+    font-weight: 500;
+    color: #032e5b;
+    font-size: 1em;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .timeline-desc {
+    margin: 0;
+    color: #002d5c;
+    font-size: 0.97em;
+  }
+  @media screen and (max-width: 600px) {
+    .timeline-content {
+      min-width: 0;
+      padding: 8px 10px;
+    }
+    .timeline {
+      margin-left: 10px;
+      padding-left: 10px;
+    }
+  }
+</style>
