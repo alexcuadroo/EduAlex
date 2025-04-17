@@ -1,5 +1,4 @@
 ---
-// Datos del footer (puedes mover esto a un archivo JSON si prefieres)
 const links = [
   { text: "Inicio", href: "/" },
   { text: "Avisos", href: "https://edualex.uy/avisos" },
@@ -13,7 +12,6 @@ const currentYear = new Date().getFullYear();
 
 <footer class="footer">
   <div class="footer__content">
-    <!-- Enlaces de navegación -->
     <nav class="footer__nav">
       <ul>
         {
@@ -25,8 +23,6 @@ const currentYear = new Date().getFullYear();
         }
       </ul>
     </nav>
-
-    <!-- Derechos de autor -->
     <p class="footer__copyright">
       &copy; {currentYear} EduAlex. Ni izquierdos, ni derechos reservados.
     </p>
