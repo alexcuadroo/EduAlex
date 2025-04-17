@@ -1,0 +1,45 @@
+.avisos-section {
+  margin: 2rem auto;
+  width: 100%;
+  padding: 1rem;
+}
+.avisos-section h2 {
+  color: #032e5b;
+  margin-bottom: 1rem;
+}
+.avisos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+.aviso-card {
+  background: #e2f3ff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.aviso-card h3 {
+  margin: 0;
+  color: #007bff;
+  font-size: 1.1em;
+}
+.aviso-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.97em;
+  color: #145192;
+}
+@media (max-width: 600px) {
+h2, summary {
+    margin-left: 4vw;
+}
+  .avisos-section {
+    padding: 0;
+  }
+  .avisos-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,42 @@
+---
+import "./avisos.css";
+---
+
+<section class="avisos-section">
+  <h2>Publicaciones recientes</h2>
+  <details>
+    <summary>Ver Publicaciones</summary>
+    <div id="avisos-list">
+      <p>Cargando publicaciones...</p>
+    </div>
+  </details>
+</section>
+
+<script is:inline>
+  (async () => {
+    const avisosDiv = document.getElementById("avisos-list");
+    try {
+      const res = await fetch("https://edualex.uy/avisos/datos.php");
+      const data = await res.json();
+      const avisos = Array.isArray(data) ? data : data.data || [];
+      if (!avisos.length) {
+        avisosDiv.innerHTML = "<p>No hay publicaciones disponibles.</p>";
+        return;
+      }
+      avisosDiv.innerHTML = `<div class='avisos-grid'>${avisos
+        .map(
+          (aviso) => `
+      <div class='aviso-card'>
+        <h3>${aviso.titulo} - ${aviso.hora}</h3>
+        <div class='aviso-info'>
+          <span class='aviso-fecha'>Expira: ${aviso.fecha_expiracion}</span>
+        </div>
+      </div>
+    `
+        )
+        .join("")}</div>`;
+    } catch (e) {
+      avisosDiv.innerHTML = "<p>No hay publicaciones disponibles.</p>";
+    }
+  })();
+</script>
