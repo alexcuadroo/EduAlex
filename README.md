@@ -1,6 +1,6 @@
 # EduAlex - Portafolio personal
 
-EduAlex es un portafolio personal desarrollado con [Astro](https://astro.build/), orientado a mostrar proyectos, formación y formas de contacto de Alex Cuadro, docente de Historia e Informática.
+EduAlex es un portafolio personal desarrollado con [Astro](https://astro.build/), orientado a mostrar proyectos, formación y formas de contacto de Alex Cuadro, docente de Historia y estudiante de Prof. Informática.
 
 ## Características principales
 - **Navegación fija** y diseño responsive.
@@ -43,7 +43,7 @@ EduAlex es un portafolio personal desarrollado con [Astro](https://astro.build/)
 
 ## Créditos
 Desarrollado por [Alex Cuadro](https://github.com/alexcuadroo).
+Inspirado por [Midudev](https://porfolio.dev)
 
+Readme Generado por GPT-4.1 (Preview)
 ---
-
-¡Personaliza este README según tus necesidades!
