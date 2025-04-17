@@ -1,1 +1,1 @@
-# Nueva portada para EduAlex
+# Web para EduAlex con Astro
