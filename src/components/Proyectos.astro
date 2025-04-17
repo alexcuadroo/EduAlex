@@ -70,6 +70,9 @@ const proyectos = [
       d="M14 4l-4 16"></path></svg
   >Proyectos
 </h2>
+<p>
+  Realizo cositas <strong>vibecodeando</strong> xD para solucionar mis necesidades.
+</p>
 <section class="proyectos">
   {
     proyectos.map((proyecto, index) => (
@@ -141,11 +144,17 @@ const proyectos = [
   h2 {
     scroll-margin-top: 80px;
     font-size: 2em;
-    margin-bottom: 20px;
+    margin: 0;
     display: inline-flex;
     align-items: center;
     gap: 8px;
     color: #032e5b;
+  }
+  p {
+    font-size: 1.2em;
+    margin: 0;
+    margin-bottom: 20px;
+    color: #145192;
   }
   .proyectos {
     display: flex;
