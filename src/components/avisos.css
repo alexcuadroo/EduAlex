@@ -32,6 +32,12 @@
   font-size: 0.97em;
   color: #145192;
 }
+summary {
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #003975;
+  margin-bottom: 0.5rem;
+}
 @media (max-width: 600px) {
 h2, summary {
     margin-left: 4vw;
